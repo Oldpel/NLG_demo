@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip --version)",
+      "Bash(\"C:/Users/Chenz/anaconda3/envs/rocm/python.exe\" -c \"from transformers import get_cosine_schedule_with_warmup; print\\('OK'\\)\")",
+      "Bash(C:/Users/Chenz/anaconda3/envs/rocm/python.exe -c ' *)"
+    ]
+  }
+}

@@ -1,0 +1,80 @@
+# ============================================================
+# NLG_demo 统一配置中心
+# ============================================================
+# [Security] 本文件严禁存放任何云服务密钥、API Token、数据库密码。
+# 所有敏感凭据应通过环境变量注入（如 os.environ.get("API_KEY")）。
+
+# ---------------------------------------------------------------------------
+# 数据配置
+# ---------------------------------------------------------------------------
+data:
+  # 原始数据目录（下载后存放）
+  raw_dir: "data/raw"
+  raw_chnsenticorp: "data/raw_chnsenticorp"
+  raw_chinese_sentiment: "data/raw_chinese_sentiment"
+
+  # 清洗后数据目录
+  processed_dir: "data"
+  train_csv: "data/train.csv"
+  val_csv: "data/val.csv"
+  test_csv: "data/test.csv"
+
+  # 停用词与词表
+  stopwords: "data/stopwords.txt"
+  vocab_path: "data/vocab.json"
+
+  # EDA 输出
+  eda_dir: "data/eda"
+
+# ---------------------------------------------------------------------------
+# 模型配置
+# ---------------------------------------------------------------------------
+models:
+  bilstm:
+    embed_dim: 300
+    hidden_dim: 128
+    num_layers: 2
+    dropout: 0.5
+    max_len: 128
+    # 预训练词向量路径（可选，留空则随机初始化）
+    pretrained_embed: null
+
+  distilbert:
+    pretrained_model: "distilbert-base-multilingual-cased"
+    max_len: 128
+
+# ---------------------------------------------------------------------------
+# 训练配置
+# ---------------------------------------------------------------------------
+training:
+  bilstm:
+    batch_size: 64
+    lr: 0.001
+    epochs: 30
+    patience: 5
+    device: null  # null = 自动检测 (cuda > mps > cpu)
+
+  distilbert:
+    batch_size: 32
+    lr: 0.00002
+    weight_decay: 0.01
+    warmup_ratio: 0.1
+    epochs: 10
+    patience: 3
+    device: null
+
+# ---------------------------------------------------------------------------
+# 输出配置
+# ---------------------------------------------------------------------------
+output:
+  # 模型权重保存目录
+  checkpoint_dir: "checkpoints"
+
+  # 训练曲线与评估报告输出目录
+  bilstm_output_dir: "outputs/bilstm"
+  distilbert_output_dir: "outputs/distilbert"
+
+  # 评估结果文件名
+  evaluate_result: "evaluate_result.json"
+  training_curves: "training_curves.png"
+  distilbert_training_curves: "distilbert_training_curves.png"
