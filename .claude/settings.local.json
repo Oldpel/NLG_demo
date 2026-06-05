@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(where conda *)",
+      "Bash(C:/Users/Chenz/anaconda3/envs/rocm/python.exe -m pip install jieba pandas torch transformers opencc-python-reimplemented)",
+      "Bash(C:/Users/Chenz/anaconda3/envs/rocm/python.exe -c \"import torch; import pandas; import jieba; import opencc; from opencc import OpenCC; from torch.utils.data import Dataset; from transformers import AutoTokenizer; print\\('所有依赖在 rocm 环境中导入成功！'\\)\")",
+      "Bash(C:/Users/Chenz/anaconda3/envs/rocm/python.exe -m pip install \"transformers==5.0.0\")",
+      "Bash(C:/Users/Chenz/anaconda3/envs/rocm/python.exe -m pip show datasets)",
+      "Bash(C:/Users/Chenz/anaconda3/envs/rocm/python.exe -m pip install datasets)",
+      "Bash(C:/Users/Chenz/anaconda3/envs/rocm/python.exe -c ' *)",
+      "Bash(C:/Users/Chenz/anaconda3/envs/rocm/python.exe c:/Users/Chenz/Desktop/NLG/M1_list/download_and_eda.py)",
+      "Bash(C:/Users/Chenz/anaconda3/envs/rocm/python.exe download_and_eda.py)",
+      "Bash(C:/Users/Chenz/anaconda3/envs/rocm/python.exe preprocess.py)"
+    ]
+  }
+}
